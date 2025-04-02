@@ -4,66 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Lista Delicias Bowl</title>
 
 </head>
 <body>
     <header>
         <h1>Delicias Bowl</h1>
     </header>
+    <h3>Esto es solo para que veas lo disponible y adelantes lo que quieras pedir</h3>
     <main>
-        <section class="ingredientes">
-            <h2>Bases</h2>
-            <ul class="list">
-                <li>Arroz</li>
-                <li>Fideos Integrales</li>
-                <li>Lechuga</li>
-                <li>Quinoa</li>
-            </ul>
-        </section>
-        <section class="ingredientes">
-            <h2>Vegetales</h2>
-            <ul class="list">
-                <li>Porotos negros</li>
-                <li>Aceituna Negra</li>
-                <li>Palmito</li>
-                <li>Zanahoria</li>
-                <li>Lechuga</li>
-                <li>Poroto verde</li>
-                <li>Choclo</li>
-                <li>Repollo morado</li>
-                <li>Pepinillo Dill</li>
-                <li>Chapsui</li>
-                <li>Arvejas</li>
-                <li>Pepino</li>
-                <li>Tomate</li>
-                <li>Brocoli</li>
-            </ul>
-        </section>
-        <section class="ingredientes">
-            <h2>Proteínas</h2>
-            <ul class="list">
-                <li>Pollo a la plancha</li>
-                <li>Pollo frito</li>
-                <li>Camarones</li>
-                <li>Huevo duro</li>
-                <li>Proteína de soya</li>
-                <li>Croqueta de salmon</li>
-            </ul>
-        </section>
-        <section class="ingredientes">
-            <h2>Salsas</h2>
-            <ul class="list">
-                <li>Merken</li>
-                <li>Ajo</li>
-                <li>Cilantro</li>
-                <li>Albahaca</li>
-                <li>Palta</li>
-                <li>Aceituna</li>
-                <li>Mostaza Miel</li>
-                <li>Vegana</li>
-            </ul>
-        </section>
+        <div class="list-group-tamaño">
+            <h2>Elige un Tamaño</h2>
+            <button type="button" class="list-group-item">L - Tamaño normal</button>
+            <button type="button" class="list-group-item">XL - Tamaño grande</button>
+        </div>
+        <div class="list-group-bases">
+            <h2>Elige una base</h2>
+            <button type="button" class="list-group-item">Arroz</button>
+            <button type="button" class="list-group-item">Fideos Integrales</button>
+            <button type="button" class="list-group-item">Lechuga</button>
+            <button type="button" class="list-group-item">Quinoa</button>
+        </div>
+        <div class="list-group-vegetales">
+            <h2>Elige hasta cuatro vegetales</h2>
+            <button type="button" class="list-group-item">Porotos negros</button>
+            <button type="button" class="list-group-item">Aceituna negra</button>
+            <button type="button" class="list-group-item">Palmito</button>
+            <button type="button" class="list-group-item">Zanahoria</button>
+            <button type="button" class="list-group-item">Lechuga</button>
+            <button type="button" class="list-group-item">Porotos verdes</button>
+            <button type="button" class="list-group-item">Choclo</button>
+            <button type="button" class="list-group-item">Repollo</button>
+            <button type="button" class="list-group-item">Pepinillo Dill</button>
+            <button type="button" class="list-group-item">Chapsui</button>
+            <button type="button" class="list-group-item">Arvejas</button>
+            <button type="button" class="list-group-item">Pepino</button>
+            <button type="button" class="list-group-item">Tomate</button>
+            <button type="button" class="list-group-item">Brocoli</button>
+        </div>
+        <div class="list-group-salsas">
+            <h2>Elige hasta tres salsas</h2>
+            <button type="button" class="list-group-item">Merken</button>
+            <button type="button" class="list-group-item">Ajo</button>
+            <button type="button" class="list-group-item">Cilantro</button>
+            <button type="button" class="list-group-item">Palta</button>
+            <button type="button" class="list-group-item">Aceituna</button>
+            <button type="button" class="list-group-item">Mostaza Miel</button>
+            <button type="button" class="list-group-item">Vegana (papa, zanahoria, ajo, sal y agua)</button>
+        </div>
+
+
     </main>
     <script src="script.js"></script>
 </body>
