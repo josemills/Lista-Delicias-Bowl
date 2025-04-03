@@ -66,7 +66,7 @@ document.getElementById("btn-cerrar-carrito").addEventListener("click", function
 
 // 🔹 FUNCIONALIDAD PARA ENVIAR PEDIDO A WHATSAPP
 function enviarPedidoWhatsApp() {
-    const numeroTelefono = "56988972981"; // Reemplázalo con el número del negocio
+    const numeroTelefono = "56978952735"; // Reemplázalo con el número del negocio
 
     const tamano = seleccion.tamano || "No seleccionado";
     const bases = seleccion.bases.length ? seleccion.bases.join(", ") : "No seleccionadas";
@@ -79,7 +79,7 @@ function enviarPedidoWhatsApp() {
                     `✅ *Vegetales:* ${vegetales}\n` +
                     `✅ *Salsas:* ${salsas}`;
 
-    const url = `https://wa.me/${56988972981}?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/${56978952735}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
 }
 
