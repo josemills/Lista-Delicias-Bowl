@@ -63,3 +63,25 @@ function toggleCarrito() {
 document.getElementById("btn-cerrar-carrito").addEventListener("click", function () {
     document.getElementById("carrito").style.display = "none";
 });
+
+// 🔹 FUNCIONALIDAD PARA ENVIAR PEDIDO A WHATSAPP
+function enviarPedidoWhatsApp() {
+    const numeroTelefono = "56988972981"; // Reemplázalo con el número del negocio
+
+    const tamano = seleccion.tamano || "No seleccionado";
+    const bases = seleccion.bases.length ? seleccion.bases.join(", ") : "No seleccionadas";
+    const vegetales = seleccion.vegetales.length ? seleccion.vegetales.join(", ") : "No seleccionados";
+    const salsas = seleccion.salsas.length ? seleccion.salsas.join(", ") : "No seleccionadas";
+
+    const mensaje = `Hola, quiero pedir un bowl con:\n\n` +
+                    `✅ *Tamaño:* ${tamano}\n` +
+                    `✅ *Bases:* ${bases}\n` +
+                    `✅ *Vegetales:* ${vegetales}\n` +
+                    `✅ *Salsas:* ${salsas}`;
+
+    const url = `https://wa.me/${56988972981}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
+}
+
+// Evento para el botón de WhatsApp
+document.getElementById("btn-enviar-wsp").addEventListener("click", enviarPedidoWhatsApp);
