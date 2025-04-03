@@ -13,46 +13,55 @@
     </header>
     <h3>Esto es solo para que veas lo disponible y adelantes lo que quieras pedir</h3>
     <main>
-        <div class="list-group-tamaño">
+        <div class="list-group-tamano">
             <h2>Elige un Tamaño</h2>
-            <button type="button" class="list-group-item">L - Tamaño normal</button>
-            <button type="button" class="list-group-item">XL - Tamaño grande</button>
+            <button class="list-group-item" data-group="tamano">L - Tamaño normal</button>
+            <button class="list-group-item" data-group="tamano">XL - Tamaño grande</button>
         </div>
         <div class="list-group-bases">
             <h2>Elige una base</h2>
-            <button type="button" class="list-group-item">Arroz</button>
-            <button type="button" class="list-group-item">Fideos Integrales</button>
-            <button type="button" class="list-group-item">Lechuga</button>
-            <button type="button" class="list-group-item">Quinoa</button>
+            <button class="list-group-item" data-group="base">Arroz</button>
+            <button class="list-group-item" data-group="base">Fideos Integrales</button>
+            <button class="list-group-item" data-group="base">Lechuga</button>
+            <button class="list-group-item" data-group="base">Quinoa</button>
         </div>
         <div class="list-group-vegetales">
             <h2>Elige hasta cuatro vegetales</h2>
-            <button type="button" class="list-group-item">Porotos negros</button>
-            <button type="button" class="list-group-item">Aceituna negra</button>
-            <button type="button" class="list-group-item">Palmito</button>
-            <button type="button" class="list-group-item">Zanahoria</button>
-            <button type="button" class="list-group-item">Lechuga</button>
-            <button type="button" class="list-group-item">Porotos verdes</button>
-            <button type="button" class="list-group-item">Choclo</button>
-            <button type="button" class="list-group-item">Repollo</button>
-            <button type="button" class="list-group-item">Pepinillo Dill</button>
-            <button type="button" class="list-group-item">Chapsui</button>
-            <button type="button" class="list-group-item">Arvejas</button>
-            <button type="button" class="list-group-item">Pepino</button>
-            <button type="button" class="list-group-item">Tomate</button>
-            <button type="button" class="list-group-item">Brocoli</button>
+            <button class="list-group-item" data-group="vegetale">Porotos negros</button>
+            <button class="list-group-item" data-group="vegetale">Aceituna negra</button>
+            <button class="list-group-item" data-group="vegetale">Palmito</button>
+            <button class="list-group-item" data-group="vegetale">Zanahoria</button>
+            <button class="list-group-item" data-group="vegetale">Lechuga</button>
+            <button class="list-group-item" data-group="vegetale">Porotos verdes</button>
+            <button class="list-group-item" data-group="vegetale">Choclo</button>
+            <button class="list-group-item" data-group="vegetale">Repollo</button>
+            <button class="list-group-item" data-group="vegetale">Pepinillo Dill</button>
+            <button class="list-group-item" data-group="vegetale">Chapsui</button>
+            <button class="list-group-item" data-group="vegetale">Arvejas</button>
+            <button class="list-group-item" data-group="vegetale">Pepino</button>
+            <button class="list-group-item" data-group="vegetale">Tomate</button>
+            <button class="list-group-item" data-group="vegetale">Brocoli</button>
         </div>
         <div class="list-group-salsas">
             <h2>Elige hasta tres salsas</h2>
-            <button type="button" class="list-group-item">Merken</button>
-            <button type="button" class="list-group-item">Ajo</button>
-            <button type="button" class="list-group-item">Cilantro</button>
-            <button type="button" class="list-group-item">Palta</button>
-            <button type="button" class="list-group-item">Aceituna</button>
-            <button type="button" class="list-group-item">Mostaza Miel</button>
-            <button type="button" class="list-group-item">Vegana (papa, zanahoria, ajo, sal y agua)</button>
+            <button class="list-group-item" data-group="salsa">Merken</button>
+            <button class="list-group-item" data-group="salsa">Ajo</button>
+            <button class="list-group-item" data-group="salsa">Cilantro</button>
+            <button class="list-group-item" data-group="salsa">Palta</button>
+            <button class="list-group-item" data-group="salsa">Aceituna</button>
+            <button class="list-group-item" data-group="salsa">Mostaza Miel</button>
+            <button class="list-group-item" data-group="salsa">Vegana (papa, zanahoria, ajo, sal y agua)</button>
+        </div>  
+        <button id="btn-carrito" onclick="toggleCarrito()">🛒</button>
+        <div id="carrito">
+            <h2> Este es tu Bowl</h2>
+            <p><strong>Tamaño:</strong><span id="resumenTamano">Ninguna</span></p>
+            <p><strong>Base:</strong><span id="resumenBase">Ninguna</span></p>
+            <p><strong>Vegetales:</strong><span id="resumenVegetal">Ninguna</span></p>
+            <p><strong>Salsas</strong><span id="resumenSalsa">Ninguna</span></p>
+            <button id="btn-cerrar-carrito" class="cerrar-carrito">X</button>
+            <button id="btn-enviar-wsp" class="enviar-wsp">Enviar Pedido por WhatsApp</button>
         </div>
-
 
     </main>
     <script src="script.js"></script>
