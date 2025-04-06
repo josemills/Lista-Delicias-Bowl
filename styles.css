@@ -4,36 +4,135 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
+:root {
+    --verde-oliva: #6B8E23;
+    --verde-pastel: #A5D6A7;
+    --verde-claro: #8BC34A;
+    --negro: #212121;
+    --blanco: #FFFFFF;
+    --gris-oscuro: #424242;
+    --verde-lima: #CDDC39;
+    --verde-bosque: #2C6B38;
 }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--blanco);
+    color: var(--gris-oscuro); /* Usar un gris más suave para el texto */
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: var(--verde-claro);
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Agregar una ligera sombra para separar el header */
+}
+
+header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--negro);
+}
+
+h2{
+    color: var();
+}
+
+.list-group-item {
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    background-color: var(--verde-lima);
+    color: var(--negro);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave al hacer hover */
+}
+
+.selected {
+    background-color: var(--verde-oliva);
+    color: var(--blanco);
+}
+
+#btn-carrito {
+    position: fixed;
+    bottom: 20px;  /* Ajustamos la distancia desde el borde inferior */
+    right: 20px;
+    width: 70px;  /* Establecemos el ancho */
+    height: 70px;  /* Establecemos la altura igual al ancho para que sea un círculo */
+    background-color: var(--negro);  /* O cualquier color que prefieras */
+    border-radius: 50%;  /* Esto convierte el elemento en un círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    cursor: pointer;  /* Esto hace que se vea interactivo, como un botón */
+}
+#btn-carrito svg{
+    color: var(--blanco);
+}
+
+
 
 #carrito {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 250px;
-    background: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    border-radius: 10px;
+    width: 270px;
+    background: var(--blanco);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
     display: none;
+    z-index: 999; /* Asegura que el carrito esté sobre otros elementos */
 }
+
 .cerrar-carrito {
-    background: red;
-    color: white;
+    background: var(--negro);
+    color: var(--blanco);
     border: none;
-    padding: 5px 10px;
+    padding: 8px 15px;
     cursor: pointer;
     display: block;
-    margin-top: 10px;
+    margin-top: 12px;
     text-align: center;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
-.selected {
-    background-color: lightgreen;
+
+.cerrar-carrito:hover {
+    background-color: #f44336; /* Rojo brillante al hacer hover */
 }
+
+/* Agregar un área de resumen del carrito */
+#lista-bowls {
+    margin-top: 20px;
+}
+
+#listaResumenBowl {
+    list-style-type: none;
+    padding: 0;
+}
+
+#listaResumenBowl li {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: var(--verde-pastel);
+    border-radius: 5px;
+    color: var(--negro);
+    font-weight: normal;
+}
+
 

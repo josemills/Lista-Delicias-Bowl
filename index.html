@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <title>Lista Delicias Bowl</title>
 
 </head>
@@ -11,13 +12,13 @@
     <header>
         <h1>Delicias Bowl</h1>
     </header>
-    <h3>Esto es solo para que veas lo disponible y adelantes lo que quieras pedir</h3>
     <main>
         <div class="list-group-tamano">
             <h2>Elige un Tamaño</h2>
             <button class="list-group-item" data-group="tamano">L - Tamaño normal</button>
             <button class="list-group-item" data-group="tamano">XL - Tamaño grande</button>
         </div>
+
         <div class="list-group-bases">
             <h2>Elige una base</h2>
             <button class="list-group-item" data-group="base">Arroz</button>
@@ -25,6 +26,7 @@
             <button class="list-group-item" data-group="base">Lechuga</button>
             <button class="list-group-item" data-group="base">Quinoa</button>
         </div>
+
         <div class="list-group-vegetales">
             <h2>Elige hasta cuatro vegetales</h2>
             <button class="list-group-item" data-group="vegetale">Porotos negros</button>
@@ -42,6 +44,7 @@
             <button class="list-group-item" data-group="vegetale">Tomate</button>
             <button class="list-group-item" data-group="vegetale">Brocoli</button>
         </div>
+
         <div class="list-group-salsas">
             <h2>Elige hasta tres salsas</h2>
             <button class="list-group-item" data-group="salsa">Merken</button>
@@ -52,17 +55,36 @@
             <button class="list-group-item" data-group="salsa">Mostaza Miel</button>
             <button class="list-group-item" data-group="salsa">Vegana (papa, zanahoria, ajo, sal y agua)</button>
         </div>  
-        <button id="btn-carrito" onclick="toggleCarrito()">🛒</button>
-        <div id="carrito">
-            <h2> Este es tu Bowl</h2>
-            <p><strong>Tamaño:</strong><span id="resumenTamano">Ninguna</span></p>
-            <p><strong>Base:</strong><span id="resumenBase">Ninguna</span></p>
-            <p><strong>Vegetales:</strong><span id="resumenVegetal">Ninguna</span></p>
-            <p><strong>Salsas</strong><span id="resumenSalsa">Ninguna</span></p>
-            <button id="btn-cerrar-carrito" class="cerrar-carrito">X</button>
-            <button id="btn-enviar-wsp" class="enviar-wsp">Enviar Pedido por WhatsApp</button>
+    </main>
+
+    <!-- Botón flotante para abrir el carrito -->
+    <button id="btn-carrito" onclick="toggleCarrito()"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-bowl-spoon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 1.5 -2.517 5.573 -4 6.5v1a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-1c-1.687 -1.054 -4 -5 -4 -6.5v-.5a1 1 0 0 1 1 -1z" /><path d="M8 7c1.657 0 3 -.895 3 -2s-1.343 -2 -3 -2s-3 .895 -3 2s1.343 2 3 2" /><path d="M11 5h9" /></svg></button>
+
+    <!-- Carrito flotante -->
+    <div id="carrito">
+        <h2>Este es tu Bowl</h2>
+        <p><strong>Tamaño:</strong> <span id="resumenTamano">Ninguno</span></p>
+        <p><strong>Base:</strong> <span id="resumenBase">Ninguna</span></p>
+        <p><strong>Vegetales:</strong> <span id="resumenVegetal">Ninguno</span></p>
+        <p><strong>Salsas:</strong> <span id="resumenSalsa">Ninguna</span></p>
+
+        <p>
+            <label for="nombreCliente"><strong>Nombre y Apellido:</strong></label><br>
+            <input type="text" id="nombreCliente" placeholder="Ej: Jose Mills">
+        </p>
+
+        <div class="acciones">
+            <button id="btn-agregar-bowl">Agregar Bowl</button>
+            <button onclick="enviarPedidoWhatsApp()">Enviar Pedido por WhatsApp</button>
         </div>
 
+        <div id="lista-bowls">
+            <h3>Bowls agregados:</h3>
+            <ul id="listaResumenBowl"></ul>
+        </div>
+
+        <button class="cerrar-carrito" onclick="toggleCarrito()">X</button>
+    </div>
     </main>
     <script src="script.js"></script>
 </body>

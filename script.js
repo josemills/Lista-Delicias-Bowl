@@ -16,7 +16,7 @@ document.querySelectorAll(".list-group-item").forEach(button => {
             this.classList.add("selected");
         } else if (group === "base") {
             toggleSelection(this, seleccion.bases, 2);
-        } else if (group === "vegetale") {  // El HTML tiene "vegetale", así que uso esta clave
+        } else if (group === "vegetale") {
             toggleSelection(this, seleccion.vegetales, 4);
         } else if (group === "salsa") {
             toggleSelection(this, seleccion.salsas, 3);
@@ -47,7 +47,6 @@ function actualizarResumen() {
     document.getElementById("resumenVegetal").textContent = seleccion.vegetales.length ? seleccion.vegetales.join(", ") : "Ninguno";
     document.getElementById("resumenSalsa").textContent = seleccion.salsas.length ? seleccion.salsas.join(", ") : "Ninguna";
 
-    // Mostrar el botón de carrito si hay productos seleccionados
     if (seleccion.tamano || seleccion.bases.length || seleccion.vegetales.length || seleccion.salsas.length) {
         document.getElementById("btn-carrito").style.display = "block";
     }
@@ -59,29 +58,58 @@ function toggleCarrito() {
     carrito.style.display = (carrito.style.display === "block") ? "none" : "block";
 }
 
-// Evento para cerrar el carrito
-document.getElementById("btn-cerrar-carrito").addEventListener("click", function () {
-    document.getElementById("carrito").style.display = "none";
+// Agregar otro bowl
+document.getElementById("btn-agregar-bowl").addEventListener("click", function () {
+    if (!seleccion.tamano || seleccion.bases.length === 0) {
+        alert("Por favor, selecciona al menos un tamaño y una base antes de agregar el bowl.");
+        return;
+    }
+
+    const resumenBowl = `🥗 ${seleccion.tamano} | 🍚 ${seleccion.bases.join(", ")} | 🥦 ${seleccion.vegetales.join(", ") || "Sin vegetales"} | 🥫 ${seleccion.salsas.join(", ") || "Sin salsas"}`;
+    
+    const li = document.createElement("li");
+    li.textContent = resumenBowl;
+
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "❌";
+    btnEliminar.style.marginLeft = "10px";
+    btnEliminar.onclick = () => li.remove();
+
+    li.appendChild(btnEliminar);
+    document.getElementById("listaResumenBowl").appendChild(li);
+
+    // Limpiar selección actual
+    seleccion.tamano = null;
+    seleccion.bases = [];
+    seleccion.vegetales = [];
+    seleccion.salsas = [];
+
+    // Quitar clases seleccionadas
+    document.querySelectorAll(".list-group-item").forEach(btn => btn.classList.remove("selected"));
+
+    actualizarResumen();
 });
 
-// 🔹 FUNCIONALIDAD PARA ENVIAR PEDIDO A WHATSAPP
+// Enviar pedido por WhatsApp
 function enviarPedidoWhatsApp() {
-    const numeroTelefono = "56978952735"; // Reemplázalo con el número del negocio
+    const nombreCliente = document.getElementById("nombreCliente").value.trim() || "No indicado";
 
-    const tamano = seleccion.tamano || "No seleccionado";
-    const bases = seleccion.bases.length ? seleccion.bases.join(", ") : "No seleccionadas";
-    const vegetales = seleccion.vegetales.length ? seleccion.vegetales.join(", ") : "No seleccionados";
-    const salsas = seleccion.salsas.length ? seleccion.salsas.join(", ") : "No seleccionadas";
+    // Reunir todos los bowls listados
+    const lista = document.querySelectorAll("#listaResumenBowl li");
+    if (lista.length === 0) {
+        alert("Agrega al menos un bowl antes de enviar el pedido.");
+        return;
+    }
 
-    const mensaje = `Hola, quiero pedir un bowl con:\n\n` +
-                    `✅ *Tamaño:* ${tamano}\n` +
-                    `✅ *Bases:* ${bases}\n` +
-                    `✅ *Vegetales:* ${vegetales}\n` +
-                    `✅ *Salsas:* ${salsas}`;
+    let mensaje = `Hola, mi nombre es *${nombreCliente}* y quiero pedir los siguientes bowls:\n\n`;
+    lista.forEach((li, index) => {
+        mensaje += `🍲 *Bowl ${index + 1}:* ${li.textContent.replace("❌", "").trim()}\n`;
+    });
 
-    const url = `https://wa.me/${56978952735}?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/56978952735?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
 }
 
-// Evento para el botón de WhatsApp
-document.getElementById("btn-enviar-wsp").addEventListener("click", enviarPedidoWhatsApp);
+// Botón de enviar WhatsApp
+// Asegúrate de tener un botón con id="btn-enviar-wsp" en el HTML si deseas mantener esto
+// O puedes llamar enviarPedidoWhatsApp directamente desde el HTML como ya haces
