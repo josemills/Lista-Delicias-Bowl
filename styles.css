@@ -17,10 +17,12 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--blanco);
     color: var(--gris-oscuro); 
     padding: 20px;
     height: 190vh;
+    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--blanco);
 }
 
 header {
