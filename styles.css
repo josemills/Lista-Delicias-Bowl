@@ -20,9 +20,8 @@ body {
     color: var(--gris-oscuro); 
     padding: 20px;
     height: 190vh;
-    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') no-repeat center center fixed;
+    background: url('./assets/img/greens.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: var(--blanco);
 }
 
 header {
@@ -31,7 +30,7 @@ header {
     align-items: center;
     height: 60px;
     width: 100%;
-    background-color: var(--verde-claro);
+    background-color: var(--negro);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
     transition: background-color 0.3s ease; 
     padding: 0 20px; 
@@ -52,7 +51,12 @@ header h1 {
 
 
 h2{
+    background-color: var(--blanco);
     color: var(--negro);
+    width: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 0 20px;
 }
 
 .list-group-item {
