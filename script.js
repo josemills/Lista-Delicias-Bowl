@@ -92,7 +92,13 @@ document.getElementById("btn-agregar-bowl").addEventListener("click", function (
 
 // Enviar pedido por WhatsApp
 function enviarPedidoWhatsApp() {
-    const nombreCliente = document.getElementById("nombreCliente").value.trim() || "No indicado";
+    const nombreCliente = document.getElementById("nombreCliente").value.trim();
+
+    // Validar que el nombre no esté vacío
+    if (!nombreCliente) {
+        alert("Por favor, ingresa tu nombre antes de enviar el pedido.");
+        return;
+    }
 
     const lista = document.querySelectorAll("#listaResumenBowl li");
     if (lista.length === 0) {
@@ -100,10 +106,9 @@ function enviarPedidoWhatsApp() {
         return;
     }
 
-    let mensaje = `Hola, mi nombre es *${nombreCliente}* y quiero pedir los siguientes bowls:%0A%0A`;
-
+    let mensaje = `Hola, mi nombre es *${nombreCliente}* y quiero pedir los siguientes bowls:\n\n`;
+    
     lista.forEach((li, index) => {
-        // Separamos los datos individuales del texto del bowl
         const partes = li.textContent.replace("❌", "").trim().split("|").map(p => p.trim());
         mensaje += `🍲 *Bowl ${index + 1}:*%0A`;
         mensaje += `*• Tamaño:* ${partes[0]}%0A`;
@@ -112,7 +117,7 @@ function enviarPedidoWhatsApp() {
         mensaje += `*• Salsas:* ${partes[3] || "Sin salsas"}%0A%0A`;
     });
 
-    const url = `https://wa.me/56978952735?text=${mensaje}`;
+    const url = `https://wa.me/56997907675?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
 }
 
