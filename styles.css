@@ -34,13 +34,14 @@ header {
     transition: background-color 0.3s ease; 
     padding: 0 20px; 
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 header h1 {
     font-family: 'Poppins', sans-serif; 
     font-size: 2rem;  
     font-weight: 600; 
-    color: var(--negro);
+    color: var(--blanco);
     text-align: center;
     margin: 0; 
     letter-spacing: 1px; 
@@ -49,7 +50,7 @@ header h1 {
 
 
 h2{
-    color: var();
+    color: var(--negro);
 }
 
 .list-group-item {
@@ -83,6 +84,7 @@ h2{
     height: 70px;  
     background-color: var(--negro);  
     border-radius: 30px;  
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,6 +116,8 @@ h2{
     display: none;
     z-index: 999;
     transition: transform 0.3s ease, opacity 0.3s ease;  
+    margin-bottom: 10px;
+    color: var(--negro);
 }
 
 
@@ -123,23 +127,52 @@ h2{
     opacity: 1;
 }
 
-
-.cerrar-carrito {
-    background: var(--negro);
-    color: var(--blanco);
+#carrito input {
+    background: none;
     border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    display: block;
-    margin-top: 12px;
+    outline: none;
+    max-width: 200px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 9999px;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    color: #fff;
+    font: 'Poppins', sans-serif;
+}
+
+#btn-agregar-bowl {
+    margin: 10px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px;
+    width: auto;
+    background-color: var(--negro);
+    color: var(--blanco);
+    align-items: center;
     text-align: center;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border: none;
+    border-radius: 15px;
 }
 
 
 #lista-bowls {
     margin-top: 20px;
+}
+
+#lista-bowls button {
+    margin: 10px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px;
+    width: auto;
+    background-color: var(--verde-oliva);
+    color: var(--blanco);
+    align-items: center;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
 }
 
 #listaResumenBowl {
@@ -155,5 +188,7 @@ h2{
     color: var(--negro);
     font-weight: normal;
 }
+
+
 
 
