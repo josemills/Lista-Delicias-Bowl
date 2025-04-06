@@ -20,7 +20,7 @@ body {
     color: var(--gris-oscuro); 
     padding: 20px;
     height: 190vh;
-    background: url('./assets/img/greens.jpg') no-repeat center center fixed;
+    background: url('./assets/img/fondoverde.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -51,7 +51,6 @@ header h1 {
 
 
 h2{
-    background-color: var(--blanco);
     color: var(--negro);
     width: auto;
     border-radius: 10px;
