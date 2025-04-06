@@ -118,7 +118,7 @@ function enviarPedidoWhatsApp() {
         mensaje += `*• Salsas:* ${partes[3] || "Sin salsas"}%0A%0A`;
     });
 
-    const url = `https://wa.me/56978952735?text=${mensaje}`;
+    const url = `https://wa.me/56997907675?text=${mensaje}`;
     window.open(url, "_blank");
 }
 
