@@ -94,22 +94,25 @@ document.getElementById("btn-agregar-bowl").addEventListener("click", function (
 function enviarPedidoWhatsApp() {
     const nombreCliente = document.getElementById("nombreCliente").value.trim() || "No indicado";
 
-    // Reunir todos los bowls listados
     const lista = document.querySelectorAll("#listaResumenBowl li");
     if (lista.length === 0) {
         alert("Agrega al menos un bowl antes de enviar el pedido.");
         return;
     }
 
-    let mensaje = `Hola, mi nombre es *${nombreCliente}* y quiero pedir los siguientes bowls:\n\n`;
+    let mensaje = `Hola, mi nombre es *${nombreCliente}* y quiero pedir los siguientes bowls:%0A%0A`;
+
     lista.forEach((li, index) => {
-        mensaje += `🍲 *Bowl ${index + 1}:* ${li.textContent.replace("❌", "").trim()}\n`;
+        // Separamos los datos individuales del texto del bowl
+        const partes = li.textContent.replace("❌", "").trim().split("|").map(p => p.trim());
+        mensaje += `🍲 *Bowl ${index + 1}:*%0A`;
+        mensaje += `• Tamaño: ${partes[0]}%0A`;
+        mensaje += `• Base: ${partes[1]}%0A`;
+        mensaje += `• Vegetales: ${partes[2] || "Sin vegetales"}%0A`;
+        mensaje += `• Salsas: ${partes[3] || "Sin salsas"}%0A%0A`;
     });
 
-    const url = `https://wa.me/56978952735?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/56978952735?text=${mensaje}`;
     window.open(url, "_blank");
 }
 
-// Botón de enviar WhatsApp
-// Asegúrate de tener un botón con id="btn-enviar-wsp" en el HTML si deseas mantener esto
-// O puedes llamar enviarPedidoWhatsApp directamente desde el HTML como ya haces
