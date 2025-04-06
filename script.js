@@ -106,10 +106,10 @@ function enviarPedidoWhatsApp() {
         // Separamos los datos individuales del texto del bowl
         const partes = li.textContent.replace("❌", "").trim().split("|").map(p => p.trim());
         mensaje += `🍲 *Bowl ${index + 1}:*%0A`;
-        mensaje += `• Tamaño: ${partes[0]}%0A`;
-        mensaje += `• Base: ${partes[1]}%0A`;
-        mensaje += `• Vegetales: ${partes[2] || "Sin vegetales"}%0A`;
-        mensaje += `• Salsas: ${partes[3] || "Sin salsas"}%0A%0A`;
+        mensaje += `*• Tamaño:* ${partes[0]}%0A`;
+        mensaje += `*• Base:* ${partes[1]}%0A`;
+        mensaje += `*• Vegetales:* ${partes[2] || "Sin vegetales"}%0A`;
+        mensaje += `*• Salsas:* ${partes[3] || "Sin salsas"}%0A%0A`;
     });
 
     const url = `https://wa.me/56978952735?text=${mensaje}`;
