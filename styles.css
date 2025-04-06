@@ -128,15 +128,14 @@ h2{
 }
 
 #carrito input {
-    background: none;
-    border: none;
     outline: none;
     max-width: 200px;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 9999px;
-    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-    color: #fff;
+    background-color: var(--blanco);
+    border-color: var(--negro);
+    color: var(--negro);
     font: 'Poppins', sans-serif;
 }
 
@@ -174,6 +173,8 @@ h2{
     border: none;
     border-radius: 15px;
 }
+
+
 
 #listaResumenBowl {
     list-style-type: none;
