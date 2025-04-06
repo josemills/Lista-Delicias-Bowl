@@ -15,7 +15,7 @@ document.querySelectorAll(".list-group-item").forEach(button => {
             seleccion.tamano = this.textContent;
             this.classList.add("selected");
         } else if (group === "base") {
-            toggleSelection(this, seleccion.bases, 2);
+            toggleSelection(this, seleccion.bases, 1);
         } else if (group === "vegetale") {
             toggleSelection(this, seleccion.vegetales, 4);
         } else if (group === "salsa") {
@@ -65,7 +65,7 @@ document.getElementById("btn-agregar-bowl").addEventListener("click", function (
         return;
     }
 
-    const resumenBowl = `🥗 ${seleccion.tamano} | 🍚 ${seleccion.bases.join(", ")} | 🥦 ${seleccion.vegetales.join(", ") || "Sin vegetales"} | 🥫 ${seleccion.salsas.join(", ") || "Sin salsas"}`;
+    const resumenBowl = ` ${seleccion.tamano} |  ${seleccion.bases.join(", ")} |  ${seleccion.vegetales.join(", ") || "Sin vegetales"} |  ${seleccion.salsas.join(", ") || "Sin salsas"}`;
     
     const li = document.createElement("li");
     li.textContent = resumenBowl;
