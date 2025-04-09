@@ -2,7 +2,8 @@ const seleccion = {
     tamano: null,
     bases: [],
     vegetales: [],
-    salsas: []
+    salsas: [],
+    proteinas: []
 };
 
 // Seleccionar todos los botones de opciones
@@ -20,7 +21,9 @@ document.querySelectorAll(".list-group-item").forEach(button => {
             toggleSelection(this, seleccion.vegetales, 4);
         } else if (group === "salsa") {
             toggleSelection(this, seleccion.salsas, 3);
-        }
+        } else if (group === "proteina") {
+            toggleSelection(this, seleccion.proteinas, 1);
+        } 
 
         actualizarResumen();
     });
@@ -46,8 +49,9 @@ function actualizarResumen() {
     document.getElementById("resumenBase").textContent = seleccion.bases.length ? seleccion.bases.join(", ") : "Ninguna";
     document.getElementById("resumenVegetal").textContent = seleccion.vegetales.length ? seleccion.vegetales.join(", ") : "Ninguno";
     document.getElementById("resumenSalsa").textContent = seleccion.salsas.length ? seleccion.salsas.join(", ") : "Ninguna";
+    document.getElementById("resumenProteina").textContent = seleccion.proteinas.length ? seleccion.proteinas.join(", ") : "Ninguna";
 
-    if (seleccion.tamano || seleccion.bases.length || seleccion.vegetales.length || seleccion.salsas.length) {
+    if (seleccion.tamano || seleccion.bases.length || seleccion.vegetales.length || seleccion.salsas.length || seleccion.proteinas.length) {
         document.getElementById("btn-carrito").style.display = "block";
     }
 }
@@ -65,7 +69,7 @@ document.getElementById("btn-agregar-bowl").addEventListener("click", function (
         return;
     }
 
-    const resumenBowl = ` ${seleccion.tamano} |  ${seleccion.bases.join(", ")} |  ${seleccion.vegetales.join(", ") || "Sin vegetales"} |  ${seleccion.salsas.join(", ") || "Sin salsas"}`;
+    const resumenBowl = ` ${seleccion.tamano} |  ${seleccion.bases.join(", ")} |  ${seleccion.vegetales.length ? seleccion.vegetales.join(", ") : "Sin vegetales"} |  ${seleccion.salsas.length ? seleccion.salsas.join(", ") : "Sin salsas"} | ${seleccion.proteinas.length ? seleccion.proteinas.join(", ") : "Sin proteína"}`;
     
     const li = document.createElement("li");
     li.textContent = resumenBowl;
@@ -83,6 +87,7 @@ document.getElementById("btn-agregar-bowl").addEventListener("click", function (
     seleccion.bases = [];
     seleccion.vegetales = [];
     seleccion.salsas = [];
+    seleccion.proteinas = [];
 
     // Quitar clases seleccionadas
     document.querySelectorAll(".list-group-item").forEach(btn => btn.classList.remove("selected"));
@@ -115,10 +120,11 @@ function enviarPedidoWhatsApp() {
         mensaje += `*• Tamaño:* ${partes[0]}%0A`;
         mensaje += `*• Base:* ${partes[1]}%0A`;
         mensaje += `*• Vegetales:* ${partes[2] || "Sin vegetales"}%0A`;
+        mensaje += `*• Proteína:* ${partes[4] || "Sin proteína"}%0A`;
         mensaje += `*• Salsas:* ${partes[3] || "Sin salsas"}%0A%0A`;
     });
 
-    const url = `https://wa.me/56997907675?text=${mensaje}`;
+    const url = `https://wa.me/56942956716?text=${mensaje}`;
     window.open(url, "_blank");
 }
 
