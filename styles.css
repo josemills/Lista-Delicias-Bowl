@@ -19,7 +19,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--gris-oscuro); 
     padding: 20px;
-    height: 190vh;
+    height: 250vh;
     background: url('./assets/img/fondoblancoverde.jpg') no-repeat center center fixed;
     background-size: cover;
 }
