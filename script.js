@@ -75,7 +75,7 @@ document.getElementById("btn-agregar-bowl").addEventListener("click", function (
     li.textContent = resumenBowl;
 
     const btnEliminar = document.createElement("button");
-    btnEliminar.textContent = "❌";
+    btnEliminar.textContent = "";
     btnEliminar.style.marginLeft = "10px";
     btnEliminar.onclick = () => li.remove();
 
@@ -115,7 +115,7 @@ function enviarPedidoWhatsApp() {
 
     lista.forEach((li, index) => {
         // Separamos los datos individuales del texto del bowl
-        const partes = li.textContent.replace("❌", "").trim().split("|").map(p => p.trim());
+        const partes = li.textContent.replace("", "").trim().split("|").map(p => p.trim());
         mensaje += `🍲 *Bowl ${index + 1}:*%0A`;
         mensaje += `*• Tamaño:* ${partes[0]}%0A`;
         mensaje += `*• Base:* ${partes[1]}%0A`;
