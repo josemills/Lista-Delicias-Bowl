@@ -33,7 +33,7 @@ document.querySelectorAll(".list-group-item").forEach(button => {
 function toggleSelection(button, array, max) {
     const item = button.textContent;
     const index = array.indexOf(item);
-    
+
     if (index > -1) {
         array.splice(index, 1); // Quitar si ya está seleccionado
         button.classList.remove("selected");
@@ -128,5 +128,25 @@ function enviarPedidoWhatsApp() {
     window.open(url, "_blank");
 }
 
+function checkAccessTime() {
+  const now = new Date();
+  const currentHour = now.getHours();
+
+  // Definimos el horario bloqueado: entre las 12:00 (12) y 21:00 (21, sin incluir)
+  const isBlocked = currentHour >= 12 && currentHour < 24;
+
+  const overlay = document.getElementById('overlay-block-time');
+  if (isBlocked) {
+    overlay.style.display = 'flex';
+  } else {
+    overlay.style.display = 'none';
+  }
+}
+
+// Ejecutar al cargar la página
+checkAccessTime();
+
+// Opcional: volver a verificar cada minuto
+setInterval(checkAccessTime, 60 * 1000);
 
 
