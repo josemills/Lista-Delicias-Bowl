@@ -33,7 +33,7 @@ document.querySelectorAll(".list-group-item").forEach(button => {
 function toggleSelection(button, array, max) {
     const item = button.textContent;
     const index = array.indexOf(item);
-
+    
     if (index > -1) {
         array.splice(index, 1); // Quitar si ya está seleccionado
         button.classList.remove("selected");
