@@ -20,7 +20,7 @@ body {
     color: var(--gris-oscuro); 
     padding: 20px;
     height: 250vh;
-    background: url('./assets/img/fondoblancoverde.jpg') no-repeat center center fixed;
+    background: url('./assets/img/fondoGPT1.png') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -51,7 +51,7 @@ header h1 {
 
 
 h2{
-    color: var(--negro);
+    color: var(--blanco);
     width: auto;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -237,8 +237,10 @@ h2{
 #overlay-block-time .message {
   background: white;
   padding: 2rem;
+  width: 300px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
 }
 
 #overlay-block-time .message h2 {
