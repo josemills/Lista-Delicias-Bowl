@@ -274,5 +274,39 @@ h2{
 }
 
 
+/* FUNCIONALIDAD DE LOS STICKERS */
 
+/* --- Stickers visuales encima del botón --- */
+.list-group-item.sticker-new,
+.list-group-item.sticker-soldout {
+  position: relative; /* necesario para posicionar el sticker */
+}
 
+.list-group-item.sticker-new::after,
+.list-group-item.sticker-soldout::after {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 6px;
+  transform: rotate(12deg);
+  pointer-events: none; /* evita interferir con los clics */
+  z-index: 2;
+}
+
+/* Sticker “Nuevo” */
+.list-group-item.sticker-new::after {
+  content: "NUEVO";
+  background-color: #00b894;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Sticker “Agotado” */
+.list-group-item.sticker-soldout::after {
+  content: "Agotado";
+  background-color: #d63031;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
