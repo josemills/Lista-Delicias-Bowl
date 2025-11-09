@@ -306,7 +306,7 @@ h2{
 
 /* Sticker “Agotado” */
 .list-group-item.sticker-soldout::after {
-  content: "Agotado";
+  content: "AGOTADO";
   background-color: #d63031;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
