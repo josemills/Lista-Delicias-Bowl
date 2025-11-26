@@ -133,7 +133,7 @@ function checkAccessTime() {
   const currentHour = now.getHours();
 
   // Definimos el horario bloqueado: entre las 12:00 (12) y 21:00 (21, sin incluir)
-  const isBlocked = currentHour >= 12 && currentHour < 21;
+  const isBlocked = currentHour >= 12 && currentHour < 20;
 
   const overlay = document.getElementById('overlay-block-time');
   if (isBlocked) {
